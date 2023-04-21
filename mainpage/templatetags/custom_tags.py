@@ -9,6 +9,7 @@ from mainpage.models import FooterAbout, Social, NavMenu
 from contacts.models import ContactPage
 from cart.services.cart import Cart
 
+from datetime import date
 from icecream import ic 
 
 register = template.Library()
@@ -65,3 +66,6 @@ def nav_menu():
         'nav_items' : nav_items,
     }
     
+@register.simple_tag
+def current_year():
+    return date.today().year
