@@ -24,14 +24,15 @@ urlpatterns = [
     path('', include('mainpage.urls', namespace='mainpage.mainpage')),
     path('products/', include('products.urls', namespace='products.products')),
     path('contacts/', include('contacts.urls', namespace='contacts.contacts')),
-    path('cart/', include('cart.urls', namespace='cart.cart')),\
+    path('cart/', include('cart.urls', namespace='cart.cart')),
     path('orders/', include('orders.urls', namespace='orders.orders')),
     path('users/', include('users.urls', namespace='users.users')),
+    path('pages/', include('pages.urls', namespace='pages.pages')),
     #USERS
     path('accounts/login', LoginView.as_view(template_name='users/registration/login.html'), name='login'),
     path('accounts/logout', LogoutView.as_view(template_name='users/registration/logout.html'), name='logout'),
     #CAPTCHA
-    path('captcha/', include('captcha.urls'))
+    path('captcha/', include('captcha.urls')),
 ]
 
 

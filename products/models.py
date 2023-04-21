@@ -15,8 +15,9 @@ class SingleProduct(models.Model):
     order = models.SmallIntegerField(default=0, db_index=True)
     content = BBCodeTextField(verbose_name=_('Содержание'), blank = True, null=True)
 
-    #CUSTOM MANAGERS
-    # latest_products = LatestProductsManager()
+    # CUSTOM MANAGERS
+    objects = models.Manager()
+    latest_products = LatestProductsManager()
     
     class Meta:
         verbose_name = 'Продукт'

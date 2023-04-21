@@ -1,4 +1,10 @@
 {% load static %}
+
+{% comment %}
+{% load django_bootstrap5 %}
+{% endcomment %}
+    
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,7 +33,13 @@
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
         
-        <link rel="stylesheet" href="{% static 'forms/css/style.css"' %}>
+        <link rel="stylesheet" href="{% static 'forms/css/style.css'" %}>
+        
+        {% comment %}
+        {% bootstrap_css %}
+        {% endcomment %}
+            
+        
 </head>
 <body>
     {% include 'layout/top_nav.html' %}

@@ -34,6 +34,14 @@ class CategoryDetailView(DetailView):
     context_object_name = 'category'
     model = Category
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        category = kwargs['object']
+        ic(kwargs)
+        parser = get_parser()
+        context['from_view'] = parser.render(f'[quote][b]Этот каталог {category.name}  [/b][/quote]')
+        return context
+
 
 
 

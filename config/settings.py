@@ -45,11 +45,13 @@ INSTALLED_APPS = [
     'cart',
     'customers.apps.CustomersConfig',
     'users',
+    'pages',
     #REST FRAMEWORK
     'rest_framework',
     #APPs
     'captcha',
-    'precise_bbcode'
+    'precise_bbcode',
+    'django_bootstrap5',
 ]
 
 MIDDLEWARE = [
