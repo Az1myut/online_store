@@ -9,10 +9,10 @@ from django.utils.translation import gettext_lazy as _
 
 class ContactFormDB(forms.Form):
     number = forms.CharField(label='Номер телефона')
-    subject = forms.CharField(max_length=100)
-    name = forms.CharField(max_length=50)
-    email = forms.EmailField()
-    message = forms.CharField()
+    subject = forms.CharField(max_length=100, label='Тема')
+    name = forms.CharField(max_length=50, label='Имя')
+    email = forms.EmailField(label='Email')
+    message = forms.CharField(label='Сообщение')
     captcha = CaptchaField(label="Решите пример")
 
     class Meta:
