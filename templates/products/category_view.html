@@ -1,6 +1,8 @@
 {% extends 'layout/base.html' %}
 
 {% block content %}
+{% load bbcode_tags %}
+{% bbcode entry.bbcode_content %}
 <div class="product-widget-area">
     <div class="zigzag-bottom"></div>
     <div class="container">
@@ -30,6 +32,7 @@
                 </div>
             </div>
         </div>
+        <p>{{ from_view|safe }}</p>
     </div>
 </div> 
 {% endblock content %}

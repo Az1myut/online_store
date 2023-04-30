@@ -28,6 +28,7 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -49,7 +50,10 @@ INSTALLED_APPS = [
     'rest_framework',
     #APPs
     'captcha',
-    'precise_bbcode'
+    'precise_bbcode',
+    'django_bootstrap5',
+    'django_cleanup',
+    'easy_thumbnails',
 ]
 
 MIDDLEWARE = [
@@ -134,8 +138,29 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+
+THUMBNAIL_MEDIA_ROOT = MEDIA_ROOT 
+THUMBNAIL_MEDIA_URL = MEDIA_URL 
+THUMBNAIL_BASEDIR = 'thumbs'
+
+THUMBNAIL_ALIASES = {
+    "":{
+        'avatar': {'sixe':(50,50), 'crop':True},
+        'avatar_100_100': {'sixe':(100,100), 'crop':True},
+        'avatar_100_100_bw': {'sixe':(50,50), 'crop':'smart', 'bw':True}
+    }
+}
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
+# FILE_UPLOAD_TEMP_DIR = os.path.join(BASE_DIR, 'tmp')
+
+FILE_UPLOAD_PERMISSIONS = 0o600
+FILE_UPLOAD_DIRECTORY_PERMISSIONS = None
+
+FILES_ROOT = Path(MEDIA_ROOT, 'files')
+
+
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 

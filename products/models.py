@@ -14,9 +14,13 @@ class SingleProduct(models.Model):
     images = models.ManyToManyField(to='ProductImage', verbose_name='Картины',blank =True)   
     order = models.SmallIntegerField(default=0, db_index=True)
     content = BBCodeTextField(verbose_name=_('Содержание'), blank = True, null=True)
+    document = models.FileField(verbose_name=_('Документы'),
+                                    upload_to='documents/%Y/%m/%d/',    blank=True,
+                                    null=True)
 
-    #CUSTOM MANAGERS
-    # latest_products = LatestProductsManager()
+    # CUSTOM MANAGERS
+    objects = models.Manager()
+    latest_products = LatestProductsManager()
     
     class Meta:
         verbose_name = 'Продукт'
@@ -36,6 +40,9 @@ class SingleProduct(models.Model):
 class Category(models.Model):
     name = models.CharField(verbose_name ='Название категории', max_length =50, blank=True)
     description = models.TextField(verbose_name ='Описание', blank=True)
+    document = models.FileField(verbose_name=_('Документы'),
+                                    upload_to='documents/%Y/%m/%d/',    blank=True,
+                                    null=True)
     image = models.ImageField(verbose_name='Картина',upload_to = 'category')
 
 

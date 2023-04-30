@@ -1,5 +1,5 @@
 {% load static %}
-
+{% load custom_tags %}
 <div class="site-branding-area">
     <div class="container">
         <div class="row">
@@ -32,16 +32,16 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="{% url 'mainpage:show_mainpage' %}">Home</a></li>
-                    <li><a href="shop.html">Shop page</a></li>
-                    {% comment %}
-                    <li><a href="{% url 'products:show_single_product_page' 1 %}">Single product</a></li>
-                    {% endcomment %}
-                    <li><a href="{% url 'cart:cart_detail' %}">Cart</a></li>
-                    <li><a href="checkout.html">Checkout</a></li>
                     
-                    <li><a href="#">Others</a></li>
-                    <li><a href="{% url 'contacts:contact_page_form_view' %}">Contacts</a></li>
+                    {% comment %}
+                        
+                    
+                    <li><a href="{% url 'mainpage:show_mainpage' %}">Home</a></li>
+                    <li><a href="{% url 'pages:all_products' %}">Shop page</a></li>
+                    <li><a href="{% url 'cart:cart_detail' %}">Cart</a></li>
+                    <li><a href="{% url 'contacts:contact_page_form_view' %}">Contacts</a></li> 
+                    {% endcomment %}
+                    {% nav_menu %}
                 </ul>
             </div>
         </div>

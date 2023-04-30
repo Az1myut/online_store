@@ -14,7 +14,7 @@ class MainPageTemplateView(ListView):
     context_object_name = 'categories'
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['latest_products'] = SingleProduct.objects.prefetch_related('images')
+        context['latest_products'] = SingleProduct.latest_products.all()
         '''
             Здесь  я использую prefetch_related  к полю images так как там ManyToMany relationship
             prefetch_related нужен чтобы уменьшить колво запросов в базу данных
