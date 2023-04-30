@@ -1,13 +1,19 @@
+<<<<<<< HEAD
 from distutils.command.upload import upload
 from multiprocessing.spawn import import_main_path
+=======
+>>>>>>> b755f87e829ee1b394a3d1c7a5ae764b906e867e
 from tabnanny import verbose
 from django.db import models
 from django.urls import reverse
 from django.utils.translation import gettext_lazy as _
+<<<<<<< HEAD
 
 from django.conf import settings
 
 from easy_thumbnails.fields import ThumbnailerImageField
+=======
+>>>>>>> b755f87e829ee1b394a3d1c7a5ae764b906e867e
 # Create your models here.
             #FOOTER
 class PageBlock(models.Model):
@@ -61,6 +67,7 @@ class NavMenu(models.Model):
         verbose_name_plural = _('Меню Навигации')
         ordering = ['title', ]
 
+<<<<<<< HEAD
         
 
 #BRANDS
@@ -80,3 +87,6 @@ class Brands(PageBlock):
     
     def __str__(self):
         return f'{self.title}'
+=======
+        
+>>>>>>> b755f87e829ee1b394a3d1c7a5ae764b906e867e

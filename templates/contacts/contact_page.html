@@ -25,26 +25,36 @@
                 
                                 <form method="POST" action="{% url 'contacts:contact_page_form_view' %}">
                                     
-                                    {% if message %}
-                                        <p class="text text-danger">{{ message }}</p>
-                                    {% endif %}
-                                        
+                                  
+
                                     
                                     {% csrf_token %}
+                                    {% load django_bootstrap5  %}
+                                  
+
+                                    {% bootstrap_form form layout="horizontal" size='sm' %}
+                                    {# {% bootstrap_form form layout="inline" size='sm' %} #}
+                                    {% bootstrap_button buttton_type='submit' content='Ok' size='md' %}
+                                    {% bootstrap_button buttton_type='reset' content='Cancel' size='md'  %}
+                
+
                                     
-                                    {{ form.as_p }}
                                     
-                                    {% if form.non_field_errors %}
+                                    {% comment %}
+                                        
+                                    
+                                        {% if form.non_field_errors %}
                                         
                                         {% for error in form.non_field_error %}
                                             {{ error }}
                                         {% endfor %}
                                             
-                                    {% endif %}
+                                        {% endif %}
                                         
                                     
 
                                     <input type="submit" value="Send message">
+                                    {% endcomment %}
                                 </form>
                             </div>
                         </div>

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import os
 from django.shortcuts import render, redirect
 from django.views.generic import ListView
@@ -7,6 +8,17 @@ from .forms import AddFileForm
 from datetime import datetime
 from pathlib import Path
 from django.conf import settings
+=======
+from django.shortcuts import render
+from django.urls import reverse, reverse_lazy
+
+from django.views.generic import ListView, CreateView
+from django.views.generic.base import TemplateView
+from .models import BbCodeModel
+from .forms import BbCodeForm
+from products.models import SingleProduct
+
+>>>>>>> b755f87e829ee1b394a3d1c7a5ae764b906e867e
 from icecream import ic
 # Create your views here.
 
@@ -17,6 +29,7 @@ class AllProductsView(TemplateView):
         context['products'] = SingleProduct.objects.prefetch_related('images')
         return context
 
+<<<<<<< HEAD
 def add_file(request):
     if request.method == 'POST':
         form = AddFileForm(request.POST, request.FILES)
@@ -60,3 +73,27 @@ def index_files(request):
     else:
         context = {'files' : files}
     return render(request, template_name, context=context)
+=======
+class BbCodeCreateView(CreateView):
+    model = BbCodeModel
+    form_class = BbCodeForm
+    template_name = 'pages/bbcode/bbcode_create.html'
+    success_url = '/'
+    # def get(self, request, *args, **kwargs):
+    #     return reverse(request, self.template_name, context={})
+
+    def form_valid(self, form):
+        form.save()
+        return super().form_valid(form)
+
+    def form_invalid(self, form):
+        return super().form_invalid(form)
+
+    def post(self, request, *args, **kwargs):
+        form = self.get_form()
+        if form.is_valid():
+            form.save(commit=True)
+            return self.form_valid(form)
+        else:
+            return self.form_invalid(form)
+>>>>>>> b755f87e829ee1b394a3d1c7a5ae764b906e867e

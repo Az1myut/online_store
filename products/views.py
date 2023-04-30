@@ -68,9 +68,15 @@ class CategoryDetailView(DetailView):
         category = kwargs['object']
         ic(kwargs)
         parser = get_parser()
+<<<<<<< HEAD
         context['from_view'] = parser.render(
             f'[quote][b]Этот каталог {category.name}  [/b][/quote]')
         return context
+=======
+        context['from_view'] = parser.render(f'[quote][b]Этот каталог {category.name}  [/b][/quote]')
+        return context
+
+>>>>>>> b755f87e829ee1b394a3d1c7a5ae764b906e867e
 
 
 class CategoryDetailEditView(DetailView):
